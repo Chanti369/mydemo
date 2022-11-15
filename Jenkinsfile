@@ -36,7 +36,7 @@ pipeline {
             steps{
                 script{
                     withSonarQubeEnv(credentialsId: 'mysonar') {
-                        sh 'mvn clean package -Dsonar.analysis.mode= -Dsonar.scm.enabled=false -Dsonar.scm-stats.enabled=false -Dsonar.working.directory=/var/lib/jenkins/workspace/mydemo/target/.sonar'
+                        sh 'mvn clean package -Dsonar.analysis.mode= -Dsonar.scm.enabled=false -Dsonar.scm-stats.enabled=false -Dsonar.working.directory=/var/lib/jenkins/workspace/mydemo/target/'
                     }
                 }
             }
