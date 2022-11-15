@@ -36,7 +36,7 @@ pipeline {
             steps{
                 script{
                     withSonarQubeEnv(credentialsId: 'mysonar') {
-                        sh 'mvn clean package org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+                        sh 'mvn clean package -Dsonar.analysis.mode=preview'
                     }
                 }
             }
