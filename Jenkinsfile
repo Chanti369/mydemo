@@ -2,7 +2,6 @@ pipeline {
     agent any
     environment{
         PATH = "/opt/maven/bin:$PATH"
-        PATH = "/opt/sonar/bin:$PATH"
     }
     stages{
         stage('Git checkout'){
