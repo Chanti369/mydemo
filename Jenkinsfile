@@ -36,9 +36,10 @@ pipeline {
             steps{
                 script{
                     withSonarQubeEnv(credentialsId: 'mysonar') {
-                        withMaven(maven:'Maven 3.8.6'){
-                            sh 'mvn clean package sonar:sonar'
+                        environment{
+                           PATH = "/opt/maven/bin:$PATH" 
                         }
+                        sh 'mvn clean install sonar:sonar'
                         
                     }
                 }
