@@ -2,7 +2,8 @@ pipeline {
     agent any
     environment{
         PATH = '/opt/maven/bin:$PATH'
-    }    
+    }  
+    stages{  
         stage('git checkout'){
             steps{
                 script{
@@ -23,7 +24,6 @@ pipeline {
                     sh 'mvn clean verify -DskipUnitTests'
                 }
             }
-        }
         }
     }
 }
