@@ -1,47 +1,10 @@
 pipeline {
     agent any
-    environment{
-        PATH = "/opt/maven/bin:$PATH"
-    }
     stages{
-        stage('Git checkout'){
+        stage{
             steps{
                 script{
-                    git branch: 'main', url: 'https://github.com/Chanti369/mydemo.git'
-                }
-            }
-        }
-        stage('Unit Testing'){
-            steps{
-                script{
-                    sh 'mvn test'
-                }
-            }
-        }
-        stage('Integartion Test'){
-            steps{
-                script{
-                    sh 'mvn verify -DskipUnitTests'
-                }
-            }
-        }
-        stage('mvn build'){
-            steps{
-                script{
-                    sh 'mvn clean install'
-                }
-            }
-        }
-        stage('sonar'){
-            steps{
-                script{
-                    withSonarQubeEnv(credentialsId: 'mysonar') {
-                        environment{
-                           PATH = "/opt/maven/bin:$PATH" 
-                        }
-                        sh 'mvn clean install sonar:sonar'
-                        
-                    }
+                  git branch: 'main', url: 'https://github.com/Chanti369/mydemo.git'  
                 }
             }
         }
