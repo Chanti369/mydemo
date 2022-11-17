@@ -18,5 +18,13 @@ pipeline {
                 }
             }
         }
+        stage('Integartion testing'){
+            steps{
+                script{
+                    sh 'mvn clean verify -DskipUnitTests'
+                }
+            }
+        }
+        }
     }
 }
