@@ -39,8 +39,7 @@ pipeline{
             steps{
                 script{
                     sh 'mvn clean sonar:sonar'
-                    }    
-                }
+                }    
             }
         }
     }
