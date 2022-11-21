@@ -45,5 +45,14 @@ pipeline{
                 }
             }
         }
+        stage('build image'){
+            steps{
+                script{
+                    sh 'docker build -t $JOB_NAME:v1.$JOB_IB .'
+                    sh 'docker tag $JOB_NAME:v1.$JOB_IB 7995323158/$JOB_NAME:v1.$JOB_IB'
+                    sh 'docker tag $JOB_NAME:v1.$JOB_IB 7995323158/$JOB_NAME:latest'
+                }
+            }
+        }
     }
 }
