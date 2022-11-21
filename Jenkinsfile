@@ -48,7 +48,6 @@ pipeline{
         stage('build image'){
             steps{
                 script{
-                    sh 'docker login -u 7995323158 -p Aditya@369'
                     sh 'docker build -t $JOB_NAME:v1.$JOB_IB .'
                     sh 'docker tag $JOB_NAME:v1.$JOB_IB 7995323158/$JOB_NAME:v1.$JOB_IB'
                     sh 'docker tag $JOB_NAME:v1.$JOB_IB 7995323158/$JOB_NAME:latest'
