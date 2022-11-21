@@ -36,6 +36,9 @@ pipeline{
             }
         }
         stage('sonar static'){
+            options{
+                retry(3)
+            }
             steps{
                 script{
                     sh 'mvn clean sonar:sonar'
