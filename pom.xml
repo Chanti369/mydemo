@@ -44,6 +44,19 @@
 
 	<build>
 		<plugins>
+		<plugin>
+            <groupId>com.github.seanroy</groupId>
+            <artifactId>lambda-maven-plugin</artifactId>
+            <version>2.3.3</version>
+            <dependencies>
+                <dependency>
+                    <groupId>javax.xml.bind</groupId>
+                    <artifactId>jaxb-api</artifactId>
+                    <version>2.3.1</version>
+                </dependency>
+            </dependencies>
+            ....
+        </plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
