@@ -8,5 +8,15 @@ pipeline{
                 }
             }
         }
+        stage('mvn test'){
+            tools{
+                maven "MAVEN"
+            }
+            steps{
+                script{
+                     sh 'mvn test'
+                }
+            }
+        }
     }
 }
