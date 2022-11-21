@@ -35,5 +35,14 @@ pipeline{
                 }
             }
         }
+        stage('sonar static'){
+            steps{
+                script{
+                    withSonarQubeEnv(credentialsId: 'sonarqube') {
+                        sh 'mvn clean package sonar:sonar'
+                    }    
+                }
+            }
+        }
     }
 }
