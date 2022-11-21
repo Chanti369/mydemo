@@ -2,7 +2,7 @@ pipeline{
     agent any
     tools{
         maven "MAVEN"
-        sonar "SONAR"
+        sonarqube "SONAR"
     }
     stages{
         stage('git checkout'){
