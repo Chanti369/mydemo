@@ -38,7 +38,7 @@ pipeline{
         stage('sonar static'){
             steps{
                 script{
-                    withSonarQubeEnv('SONAR') {
+                    withSonarQubeEnv('sonarqube') {
                         sh 'mvn clean package sonar:sonar'
                     }    
                 }
