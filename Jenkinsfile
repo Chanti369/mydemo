@@ -2,7 +2,6 @@ pipeline{
     agent any
     tools{
         maven "MAVEN"
-        sonarqube "SONAR"
     }
     stages{
         stage('git checkout'){
@@ -39,7 +38,7 @@ pipeline{
         stage('sonar static'){
             steps{
                 script{
-                    withSonarQubeEnv(credentialsId: 'sonarqube') {
+                    withSonarQubeEnv('SONAR') {
                         sh 'mvn clean package sonar:sonar'
                     }    
                 }
