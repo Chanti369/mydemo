@@ -36,5 +36,15 @@ pipeline{
                 }
             }
         }
+        stage('nexus'){
+            steps{
+                script{
+                    def readpom = readMavenPom file: 'pom.xml'
+                    def readversion = readpom.version
+                    def readrepo = readversion.endsWith("SNAPSHOT") ? "demoapp-snapshot" : "demoapp-release"
+                    nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar', type: 'jar']], credentialsId: 'nexus', groupId: 'com.example', nexusUrl: '13.234.226.97:8081', nexusVersion: 'nexus3', protocol: 'http', repository: readrepo, version: readversion
+                }
+            }
+        }
     }
 }
