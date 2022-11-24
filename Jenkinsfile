@@ -29,5 +29,12 @@ pipeline{
                 }
             }
         }
+        stage('mvn install'){
+            steps{
+                script{
+                    sh 'mvn clean install'
+                }
+            }
+        }
     }
 }
