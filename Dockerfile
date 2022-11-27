@@ -31,5 +31,4 @@ RUN chmod 777 /etc/systemd/system/tomcat.service
 COPY --from=build /opt/build/tomcat.service /etc/systemd/system/
 COPY --from=build /opt/build/target/*.war /opt/tomcat/webapps/
 RUN systemctl enable tomcat.service
-RUN systemctl start tomcat.service
-CMD ["usr/sbin/init"]
+CMD ["systemctl","start","tomcat.service"]
